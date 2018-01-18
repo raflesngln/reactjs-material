@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
+import ListMenuSidebar from './ListMenuSidebar';
 
-//const { Drawer, RaisedButton, MuiThemeProvider, getMuiTheme } = MaterialUI;
 import { Drawer, RaisedButton, MuiThemeProvider, getMuiTheme } from 'material-ui';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import './mystyle.css';
+//for routing
 import {
   BrowserRouter as Router,
   Route,
   Link
 } from 'react-router-dom';
+//this is page routing
 import Home from './Home';
 import About from './About';
 import Profile from './Profile';
@@ -58,15 +60,21 @@ class Sidebar extends React.Component {
   handleToggle = () => this.setState({drawerOpen: !this.state.drawerOpen});
 
   render() {
-    const contentStyle = {  transition: 'margin-left 450ms cubic-bezier(0.23, 1, 0.32, 1)' };
+    const contentStyle = {transition: 'margin-left 450ms cubic-bezier(0.23, 1, 0.32, 1)' };
     if (this.state.drawerOpen) {
       contentStyle.marginLeft = 256;
     }
-
+    const styles = {
+        barstyle:{
+            marginLeft:1,
+        }
+    }
     return (
       <Router>
       <div>
       <AppBar
+          style={styles.barstyle}
+          titleStyle={{marginLeft:220,marginRight:2}}
           title="My APPS"
           iconElementLeft={<IconButton onClick={this.handleToggle}><NavigationMenu /></IconButton>}
           iconElementRight={this.state.logged ? <Logged /> : <Logged />}
@@ -77,11 +85,7 @@ class Sidebar extends React.Component {
           </div>
           {this.props.children}
         {/* for sidebar menu */}
-        <ul className="my-menu">
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/about">About</Link></li>
-        <li><Link to="/profile">Profile</Link></li>
-        </ul>
+        <ListMenuSidebar />
         {/* end of sidebar menu */}
 
         </Drawer>
