@@ -1,0 +1,12 @@
+.listhandler li {
+  float: left;
+  background: rgb(29, 130, 177);
+}
+.Players{
+  margin-bottom: 120px;
+  margin-left: 50px;
+}
+.listPlayer button{
+  margin-left: 10px;
+  margin-right: 8px;
+}
