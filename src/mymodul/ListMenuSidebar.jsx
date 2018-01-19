@@ -35,6 +35,8 @@ const ListMenuSidebar = () => (
       <MenuItem containerElement={<Link to="/" />} primaryText="Dashboard" leftIcon={<Dashboard />}/>
       <MenuItem containerElement={<Link to="/about" />} primaryText="Master" leftIcon={<ContentCopy />}/>
       <MenuItem containerElement={<Link to="/profile" />} primaryText="Profile" leftIcon={<PersonAdd />}/>
+      <MenuItem containerElement={<Link to="/users" />} primaryText="Users" leftIcon={<ContentLink />}/>
+      <MenuItem containerElement={<Link to="/users/2" />} primaryText="Userdetail" leftIcon={<RemoveRedEye />}/>
     <Divider />
       <MenuItem containerElement={<Link to="/" />} primaryText="Logout" leftIcon={<Delete />}/>
       </Menu>

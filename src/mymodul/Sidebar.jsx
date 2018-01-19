@@ -8,12 +8,15 @@ import './mystyle.css';
 import {
   BrowserRouter as Router,
   Route,
-  Link
+  Link,
+  Switch
 } from 'react-router-dom';
 //this is page routing
 import Home from './Home';
 import About from './About';
 import Profile from './Profile';
+import Users from './Users';
+import Usersdetail from './Usersdetail';
 
 //for menu app bar
 import AppBar from 'material-ui/AppBar';
@@ -96,6 +99,10 @@ class Sidebar extends React.Component {
           <Route exact path="/" component={Home} />
           <Route path="/about" component={About} />
           <Route path="/profile" component={Profile} />
+          <Switch>
+          <Route exact path="/users" component={Users} />
+          <Route path="/users/:2" component={Usersdetail} />
+        </Switch>
           </div>
           </CardText>
         </Card>
