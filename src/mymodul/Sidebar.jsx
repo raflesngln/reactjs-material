@@ -11,12 +11,15 @@ import {
   Link,
   Switch
 } from 'react-router-dom';
-//this is page routing
+//this is page routing menu
 import Home from './Home';
 import About from './About';
 import Profile from './Profile';
 import Users from './Users';
 import Usersdetail from './Usersdetail';
+import noMatch from './noMatch';
+import Queryparams from './submenu/Queryparams';
+
 
 //for menu app bar
 import AppBar from 'material-ui/AppBar';
@@ -28,6 +31,28 @@ import FlatButton from 'material-ui/FlatButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import NavigationMenu from 'material-ui/svg-icons/navigation/menu';
+
+//for submenu routing
+import Submenu1 from './submenu/Submenu1';
+import Submenu2 from './submenu/Submenu2';
+
+const Mysubmenu= ({match}) =>(
+  <div>
+    <h1>with sub menu pages</h1>
+    <ul>
+    <li><Link to={`${match.url}/menu1`}>Sub Menu 1</Link></li>
+    <li><Link to={`${match.url}/menu2/10`}>Sub Menu 2</Link></li>
+    <li><Link to={{
+                  pathname:match.url+'/queryparams',
+                  search:'?id_user=2'
+                  }} className="active">Query params</Link></li>
+    </ul>
+    <Route path={`${match.url}/menu1`} component={Submenu1} />
+    <Route path={`${match.url}/menu2/:id`} component={Submenu2} />
+    <Route path={`${match.url}/:queryparams`} component={Queryparams} />
+  </div>
+);
+
 
 const Logged = (props) => (
     <IconMenu
@@ -96,12 +121,18 @@ class Sidebar extends React.Component {
         <Card>
           <CardText>
           <div>
+          <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/about" component={About} />
           <Route path="/profile" component={Profile} />
-          <Switch>
+          <Route path="/Mysubmenu" component={Mysubmenu} />
+          
+          
           <Route exact path="/users" component={Users} />
-          <Route path="/users/:2" component={Usersdetail} />
+          <Route path="/users/:id" component={Usersdetail} /> 
+            {/* <Route render={function(){
+              return <p>Not found</p>
+            }} /> */}
         </Switch>
           </div>
           </CardText>

@@ -32,11 +32,12 @@ const style = {
 const ListMenuSidebar = () => (
   <div>
       <Menu>
-      <MenuItem containerElement={<Link to="/" />} primaryText="Dashboard" leftIcon={<Dashboard />}/>
-      <MenuItem containerElement={<Link to="/about" />} primaryText="Master" leftIcon={<ContentCopy />}/>
-      <MenuItem containerElement={<Link to="/profile" />} primaryText="Profile" leftIcon={<PersonAdd />}/>
-      <MenuItem containerElement={<Link to="/users" />} primaryText="Users" leftIcon={<ContentLink />}/>
-      <MenuItem containerElement={<Link to="/users/2" />} primaryText="Userdetail" leftIcon={<RemoveRedEye />}/>
+      <MenuItem activeClassName="active" containerElement={<Link to="/" />} primaryText="Dashboard" leftIcon={<Dashboard />}/>
+      <MenuItem activeClassName="active" containerElement={<Link to="/about" />} primaryText="Master" leftIcon={<ContentCopy />}/>
+      <MenuItem activeClassName="active" containerElement={<Link to="/profile" />} primaryText="Profile" leftIcon={<PersonAdd />}/>
+      <MenuItem activeClassName="active" containerElement={<Link to="/users" />} primaryText="Users" leftIcon={<ContentLink />}/>
+      <MenuItem activeClassName="active" containerElement={<Link to="/users/2" />} primaryText="Userdetail" leftIcon={<RemoveRedEye />}/>
+      <MenuItem activeClassName="active" containerElement={<Link to="/Mysubmenu" />} primaryText="Submenu" leftIcon={<RemoveRedEye />}/>
     <Divider />
       <MenuItem containerElement={<Link to="/" />} primaryText="Logout" leftIcon={<Delete />}/>
       </Menu>
