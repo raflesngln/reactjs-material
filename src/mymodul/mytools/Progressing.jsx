@@ -1,8 +1,9 @@
 import React from 'react';
-import LinearProgress from 'material-ui/LinearProgress';
+import './../mystyle.css';
+
 
 const Progressing = () => (
-  <LinearProgress mode="indeterminate" />
+  <div className="myprogress spinner"></div>
 );
 
 export default Progressing;

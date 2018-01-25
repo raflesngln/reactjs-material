@@ -118,7 +118,7 @@ class Sidebar extends React.Component {
 
         </Drawer>
         <div style={contentStyle} className="content-box">
-        <Card>
+        <Card className="mycontent">
           <CardText>
           <div>
           <Switch>

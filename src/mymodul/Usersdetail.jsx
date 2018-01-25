@@ -4,8 +4,8 @@ import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import DatePicker from 'material-ui/DatePicker';
 import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
-import Progressing from './mytools/Progressing';
 import Formuser from './users/Create_users';
+import Progressing from './mytools/Progressing';
 
 import './mystyle.css';
 import {
@@ -24,6 +24,7 @@ class Usersdetail extends React.Component{
             name: "Rafles Nainggolan",
             address:'jakarta barat',
             open: false,
+            loading: true
         };
     }
      handleOpen = () => {
@@ -37,7 +38,10 @@ class Usersdetail extends React.Component{
       myFungsi=() =>{
           alert('hello wolrd');
       }
-
+      componentDidMount() {
+        //this.setState ({loading: false})
+        setTimeout(() => this.setState({ loading: false }), 600); // simulates an async action, and hides the spinner
+    }
     render(){
         const actions = [
             <FlatButton
@@ -65,12 +69,14 @@ class Usersdetail extends React.Component{
           }
 
         return (
+          //this is for progress loading component
+          this.state.loading ? <Progressing /> :
         <div>
             <h1>DETAIL USER</h1>
             <p>This is all of Detail</p>
             <RaisedButton label="Modal Dialog" onClick={this.myFungsi} />
             <br/>
-            <Progressing />
+           
             <p>ID USER </p>
             {/* modal dialog open */}
             <RaisedButton label="Modal Dialog" onClick={this.handleOpen} />
