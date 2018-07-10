@@ -5,9 +5,9 @@ Below you will find some information on how to perform common tasks.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
 
-<p>
-<img src="https://bitbucket.org/raflesgholand/reactjs_material_1/raw/59d7fd0fa4cee062e076436e4d1a25368f16a9d3/Capture.JPG" alt="My cool logo"/>
-</p>
+
+
+![Alt text](https://bitbucket.org/raflesgholand/reactjs_material_1/raw/085e543909a346c6a4458e1a4f46e7346cb1dc0f/Capture.JPG)
 
 ## Table of Contents
 
