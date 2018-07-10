@@ -26,6 +26,7 @@ class Users extends React.Component{
                 }
              ]
         };
+        
         this.addUser=this.addUser.bind(this);
         this.findDomNodeHandler = this.findDomNodeHandler.bind(this);
         this.updateState = this.updateState.bind(this);

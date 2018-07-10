@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import ListMenuSidebar from './ListMenuSidebar';
+import SocialPerson from 'material-ui/svg-icons/social/person';
+import NotificationsIcon from 'material-ui/svg-icons/social/notifications';
+import ToggleStar from 'material-ui/svg-icons/toggle/star';
+import Badge from 'material-ui/Badge';
 
 import { Drawer, RaisedButton, MuiThemeProvider, getMuiTheme } from 'material-ui';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
@@ -55,10 +59,25 @@ const Mysubmenu= ({match}) =>(
 
 
 const Logged = (props) => (
+  <div>
+  <IconMenu
+    {...props}
+      iconButtonElement={
+        <Badge badgeContent={10} secondary={true} badgeStyle={{top: 12, right: 12}}>
+        <IconButton tooltip="Notifications"><NotificationsIcon /></IconButton>
+        </Badge>
+      }
+      targetOrigin={{horizontal: 'right', vertical: 'top'}}
+      anchorOrigin={{horizontal: 'right', vertical: 'top'}}
+    >
+      <MenuItem primaryText="Notification one" onItemTouchTap = {() => console.log('touch1')} />
+      <MenuItem primaryText="Notification two" />
+    </IconMenu>
+
     <IconMenu
       {...props}
       iconButtonElement={
-        <IconButton><MoreVertIcon /></IconButton>
+        <IconButton><SocialPerson /></IconButton>
       }
       targetOrigin={{horizontal: 'right', vertical: 'top'}}
       anchorOrigin={{horizontal: 'right', vertical: 'top'}}
@@ -67,26 +86,31 @@ const Logged = (props) => (
       <MenuItem primaryText="Help" />
       <MenuItem primaryText="Sign out" />
     </IconMenu>
+
+    </div>
   );
   
   Logged.muiName = 'IconMenu';
 //end for app bar
-
+//========================start class=======================================
 class Sidebar extends React.Component {
   constructor(props) {
     super(props);
     //first run sidebar drawer open
     this.state = { drawerOpen: true };
+    this.handleAction=this.handleAction.bind(this);
   }
-  state = {
-    logged: true,
-  };
+
   handleChange = (event, logged) => {
     this.setState({logged: logged});
   };
   //custome drawer
   handleToggle = () => this.setState({drawerOpen: !this.state.drawerOpen});
 
+  handleAction() {
+    //alert('hello world');
+    console.log('helloooo')
+ }
   render() {
     const contentStyle = {transition: 'margin-left 450ms cubic-bezier(0.23, 1, 0.32, 1)' };
     if (this.state.drawerOpen) {
@@ -109,7 +133,7 @@ class Sidebar extends React.Component {
         />
         <Drawer open={this.state.drawerOpen} width={250} >
           <div style={{ textAlign: 'right' }}>
-            <IconButton onClick={this.handleToggle}><NavigationClose /></IconButton>
+            <IconButton onClick={this.handleToggle}><NavigationMenu /></IconButton>
           </div>
           {this.props.children}
         {/* for sidebar menu */}

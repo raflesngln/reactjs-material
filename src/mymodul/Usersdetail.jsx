@@ -6,8 +6,8 @@ import DatePicker from 'material-ui/DatePicker';
 import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
 import Formuser from './users/Create_users';
 import Progressing from './mytools/Progressing';
-
 import './mystyle.css';
+import AutoComplete from 'material-ui/AutoComplete';
 import {
     Route,
     Link
@@ -17,6 +17,25 @@ import {
       marginTop: 16,
     },
   };
+  
+  const peoples = [
+      'rafles',
+      'budi',
+      'mawar',
+      'david',
+      'adam',
+      'arni',
+      'andi',
+      'beni',
+      'rani',
+      'reni'
+    ];
+    
+    const menuPeople = {
+      desktop: true,
+      disableAutoFocus: true,
+    };
+// strart classs===============================
 class Usersdetail extends React.Component{
     constructor(props) {
         super(props);
@@ -57,7 +76,7 @@ class Usersdetail extends React.Component{
             />,
           ];
           const radios = [];
-          for (let i = 0; i < 30; i++) {
+          for (let i = 0; i < 15; i++) {
             radios.push(
               <RadioButton
                 key={i}
@@ -74,12 +93,9 @@ class Usersdetail extends React.Component{
         <div>
             <h1>DETAIL USER</h1>
             <p>This is all of Detail</p>
-            <RaisedButton label="Modal Dialog" onClick={this.myFungsi} />
-            <br/>
-           
             <p>ID USER </p>
             {/* modal dialog open */}
-            <RaisedButton label="Modal Dialog" onClick={this.handleOpen} />
+            <RaisedButton label="Modal Dialog" primary={true} onClick={this.handleOpen} />
                 <Dialog
                 title="Dialog With Actions"
                 actions={actions}
@@ -90,6 +106,11 @@ class Usersdetail extends React.Component{
                 Only actions can close this dialog.
                 Open a Date Picker dialog from within a dialog.
                 <DatePicker hintText="Date Picker" />
+                <AutoComplete
+                      hintText="Type Name"
+                      dataSource={peoples}
+                      menuProps={menuPeople}
+                    />
                 <RadioButtonGroup name="shipSpeed" defaultSelected="not_light">
                     {radios}
                 </RadioButtonGroup>
