@@ -16,13 +16,12 @@ class Home extends React.Component{
     render(){
         return (
         <div>
-            <h1>Ini Halaman HOME</h1>
+            <h1>DASHBOARD</h1>
             <div>Selamat datang {this.state.name +' - '+this.state.address} !</div>
             <button onClick={this.clickMe}> CLICK ME </button>
         </div>
         );
     }
 }
-
 
 export default Home;
